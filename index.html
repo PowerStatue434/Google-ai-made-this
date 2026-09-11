@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER // Secure Web Proxy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="proxy-container" id="app-wrapper">
+        <!-- Floating Navigation Input Dock -->
+        <header class="proxy-dock">
+            <div class="brand">
+                <span class="shield-icon">🛡️</span>
+                <h1>AETHER</h1>
+            </div>
+            <form id="proxy-form" class="search-bar">
+                <span class="lock-indicator">SECURE://</span>
+                <input type="text" id="target-url" placeholder="Enter URL (e.g., wikipedia.org) or search query..." required autocomplete="off">
+                <button type="submit" class="btn-launch">Browse</button>
+            </form>
+            <div class="status-badge">
+                <span class="pulse"></span> IP Masked
+            </div>
+        </header>
+
+        <!-- Dynamic Proxy Sandbox Display Canvas -->
+        <main class="viewport-area" id="viewport-container">
+            <div class="welcome-screen" id="welcome-message">
+                <div class="hero-text">
+                    <h2>Private Browsing Sandbox</h2>
+                    <p>Requests are securely routed through an isolated backend architecture, sanitizing cookies and stripping analytics tracking flags.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feat-box"><h4>🔒 Encrypted Stream</h4><p>Data passes through custom backend nodes.</p></div>
+                    <div class="feat-box"><h4>🚫 CORS Override</h4><p>Bypasses web cross-origin restrictions cleanly.</p></div>
+                    <div class="feat-box"><h4>🍪 Cookie Isolation</h4><p>Prevents persistent host script tracking sessions.</p></div>
+                </div>
+            </div>
+            <!-- The actual proxy browser engine feeds inside this hidden component -->
+            <iframe id="proxy-viewport" title="Secure Browser Port" class="hidden"></iframe>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
